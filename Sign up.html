@@ -27,10 +27,10 @@ padding:20px;
 font-size: 25px;
 line-height: 50px;
 }
-input[type=text], select {
+input[type=text] {
     width: 370px;
     padding: 12px 20px;
-    margin: 8px 0;
+   
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -41,7 +41,7 @@ input[type=submit] {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 18px 0;
+    margin: 5px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -52,15 +52,44 @@ input[type=submit]:hover {
 }
 
 </style>
+<script>
+function paformat()
+{
+var pw=document.forms["sign_up"]["Password"].value;
+var cl=/[A-Z]/.test(pw);//checking for capital letter
+var nu=/[0-9]/.test(pw);//checking for numeral
+var sc=/[^a-zA-Z0-9]/.test(pw);//checking for special character
+if(!(cl==true && nu==true && sc==true))
+{
+alert("Password must contain a number,capital letter and special character");//alerting user about password format
+return false;
+}
+var rpw=document.forms["sign_up"]["re_password"].value;
+if(rpw!=pw)
+{
+alert("Password does not match");//alerting user about password mis-match
+return false;
+}
+var an=document.forms["sign_up"]["UID"].value;
+if(an.length!=12)
+{
+alert("Enter a valid Aadhar id");//alerting user to enter a valid UID
+return false;
+}
+}
+</script>
 </head>
 <body>
 <div class="div1" align="center">
-<div class="div2">Login Credentials
+<div class="div2">Sign up details
 <div class="div3">
-<form action="welcome.php" method="post">
-UserId: <input type="text" name="UserId"><br>
-Password: <input type="text" name="Password"><br>
-UID: <input type="text" name="UID"><br>
+<form name="sign_up" action="welcome.php" onsubmit="return paformat()" method="post">
+UserId:   <input type="text" name="UserId" maxlength="10" minlength="3" placeholder="Enter 3 - 25 characters" required><br>
+Password: <input type="text" name="Password" placeholder="Enter 3 - 30 characters"
+ maxlength="10" minlength="3" required><br>
+Retype Password: <input type="text" name="re_password" placeholder="Enter 3 - 30 characters"
+ maxlength="10" minlength="3" required><br>
+UID: <input type="text" name="UID" placeholder="Enter 12 digit Aadhar number" required><br>
 <input type="submit">
 </form>
 </div>
@@ -68,3 +97,4 @@ UID: <input type="text" name="UID"><br>
 </div>
 </body>
 </html>
+
