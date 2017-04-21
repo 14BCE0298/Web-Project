@@ -19,7 +19,7 @@ Password VARCHAR(30) NOT NULL)";
 if ($conn->query($sql) === TRUE) {
     echo "Table Users created successfully";
 } else {
-    echo "Error creating table: Users" . $conn->error;
+    echo "Error creating table: " . $conn->error;
 }
 
 $conn->close();
