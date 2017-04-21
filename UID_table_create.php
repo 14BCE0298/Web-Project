@@ -1,4 +1,4 @@
-<?php
+<<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -12,8 +12,7 @@ if ($conn->connect_error) {
 } 
 
 // sql to create table
-$sql = "CREATE TABLE UID (
-id VARCHAR(25) PRIMARY KEY)";
+$sql = "CREATE TABLE UID (id varchar(12) PRIMARY KEY)";
 
 if ($conn->query($sql) === TRUE) {
     echo "Table UID created successfully";
