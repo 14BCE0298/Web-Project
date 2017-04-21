@@ -12,9 +12,19 @@ if ($conn->connect_error) {
 } 
 
 $sql = "INSERT INTO UID (id)
-VALUES ('45df-78er-gh12');";
+VALUES ('123412343333');";
 $sql .= "INSERT INTO UID (id)
-VALUES ('12bn-23hj-89rt');";
+VALUES ('123412344444');";
+$sql .= "INSERT INTO UID (id)
+VALUES ('123412345555');";
+$sql .= "INSERT INTO UID (id)
+VALUES ('123412346666');";
+$sql .= "INSERT INTO UID (id)
+VALUES ('123412348888');";
+$sql .= "INSERT INTO UID (id)
+VALUES ('123412349999');";
+$sql .= "INSERT INTO UID (id)
+VALUES ('123412347777');";
 
 if ($conn->multi_query($sql) === TRUE) {
     echo "New records created successfully";
