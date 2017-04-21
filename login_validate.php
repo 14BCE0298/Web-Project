@@ -16,10 +16,10 @@ $sql = "SELECT * FROM Users WHERE Username='$UN' AND Password='$PW'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "WELCOME";
+    header('Location: http://localhost/Project/bank.html');//Redirecting to bank login and service page
     }
  else {
-    echo "Invalid Credentials";
+    header('Location: http://localhost/Project/do.html');//Redirecting to sign in page with error message
 }
 $conn->close();
 ?>
